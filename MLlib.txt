@@ -1,0 +1,418 @@
+>>> file7 = sqlContext('file:///home/ubuntu1/cars.csv')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'SQLContext' object is not callable
+>>> sqlContext
+<pyspark.sql.context.SQLContext object at 0x7f84c249dda0>
+>>> file7 = sqlContext.read.csv('file:///home/ubuntu1/cars.csv',header=True)
+18/10/17 10:22:38 WARN DataSource: Multiple sources found for csv (com.databricks.spark.csv.DefaultSource15, org.apache.spark.sql.execution.datasources.csv.CSVFileFormat), defaulting to the internal datasource (org.apache.spark.sql.execution.datasources.csv.CSVFileFormat).
+18/10/17 10:22:38 WARN DataSource: Multiple sources found for csv (com.databricks.spark.csv.DefaultSource15, org.apache.spark.sql.execution.datasources.csv.CSVFileFormat), defaulting to the internal datasource (org.apache.spark.sql.execution.datasources.csv.CSVFileFormat).
+>>> file7.printSchema()
+root
+ |-- make: string (nullable = true)
+ |-- fueltype: string (nullable = true)
+ |-- numofdoors: string (nullable = true)
+ |-- bodystyle: string (nullable = true)
+ |-- drivewheels: string (nullable = true)
+ |-- enginelocation: string (nullable = true)
+ |-- wheelbase: string (nullable = true)
+ |-- length: string (nullable = true)
+ |-- width: string (nullable = true)
+ |-- height: string (nullable = true)
+ |-- curbweight: string (nullable = true)
+ |-- enginesize: string (nullable = true)
+ |-- horsepower: string (nullable = true)
+ |-- peakrpm: string (nullable = true)
+ |-- citympg: string (nullable = true)
+ |-- highwaympg: string (nullable = true)
+ |-- price: string (nullable = true)
+
+>>> schema = StructType([StructField('make',StringType(),True),StructField('fueltype',StringType(),True),StructField('numofdoors',StringType(),True),StructField('bodystyle',StringType(),True),StructField('drivewheels',StringType(),True),StructField('enginelocation',StringType(),True),StructField('wheelbase',StringType(),True),StructField('length',FloatType(),True),StructField('width',FloatType(),True),StructField('height',FloatType(),True),StructField('curbweight',IntType(),True),StructField('enginesize',FloatType(),True),StructField('horsepower',FloatType(),True),StructField('peakrpm',FloatType(),True),StructField('citympg',FloatType(),True),StructField('highwaympg',FloatType(),True),StructField('price',IntegerType(),True)])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'StructType' is not defined
+>>> from pyspark.sql.types import StructType
+>>> schema = StructType([StructField('make',StringType(),True),StructField('fueltype',StringType(),True),StructField('numofdoors',StringType(),True),StructField('bodystyle',StringType(),True),StructField('drivewheels',StringType(),True),StructField('enginelocation',StringType(),True),StructField('wheelbase',StringType(),True),StructField('length',FloatType(),True),StructField('width',FloatType(),True),StructField('height',FloatType(),True),StructField('curbweight',IntType(),True),StructField('enginesize',FloatType(),True),StructField('horsepower',FloatType(),True),StructField('peakrpm',FloatType(),True),StructField('citympg',FloatType(),True),StructField('highwaympg',FloatType(),True),StructField('price',IntegerType(),True)])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'StructField' is not defined
+>>> from pyspark.sql.types import StructField
+>>> schema = StructType([StructField('make',StringType(),True),StructField('fueltype',StringType(),True),StructField('numofdoors',StringType(),True),StructField('bodystyle',StringType(),True),StructField('drivewheels',StringType(),True),StructField('enginelocation',StringType(),True),StructField('wheelbase',StringType(),True),StructField('length',FloatType(),True),StructField('width',FloatType(),True),StructField('height',FloatType(),True),StructField('curbweight',IntType(),True),StructField('enginesize',FloatType(),True),StructField('horsepower',FloatType(),True),StructField('peakrpm',FloatType(),True),StructField('citympg',FloatType(),True),StructField('highwaympg',FloatType(),True),StructField('price',IntegerType(),True)])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'StringType' is not defined
+>>> from pyspark.sql.types import StructType
+>>> schema = StructType([StructField('make',StringType(),True),StructField('fueltype',StringType(),True),StructField('numofdoors',StringType(),True),StructField('bodystyle',StringType(),True),StructField('drivewheels',StringType(),True),StructField('enginelocation',StringType(),True),StructField('wheelbase',StringType(),True),StructField('length',FloatType(),True),StructField('width',FloatType(),True),StructField('height',FloatType(),True),StructField('curbweight',IntType(),True),StructField('enginesize',FloatType(),True),StructField('horsepower',FloatType(),True),StructField('peakrpm',FloatType(),True),StructField('citympg',FloatType(),True),StructField('highwaympg',FloatType(),True),StructField('price',IntegerType(),True)])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'StringType' is not defined
+>>> from pyspark.sql.types import *
+>>> schema = StructType([StructField('make',StringType(),True),StructField('fueltype',StringType(),True),StructField('numofdoors',StringType(),True),StructField('bodystyle',StringType(),True),StructField('drivewheels',StringType(),True),StructField('enginelocation',StringType(),True),StructField('wheelbase',StringType(),True),StructField('length',FloatType(),True),StructField('width',FloatType(),True),StructField('height',FloatType(),True),StructField('curbweight',IntType(),True),StructField('enginesize',FloatType(),True),StructField('horsepower',FloatType(),True),StructField('peakrpm',FloatType(),True),StructField('citympg',FloatType(),True),StructField('highwaympg',FloatType(),True),StructField('price',IntegerType(),True)])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'IntType' is not defined
+>>> schema = StructType([StructField('make',StringType(),True),StructField('fueltype',StringType(),True),StructField('numofdoors',StringType(),True),StructField('bodystyle',StringType(),True),StructField('drivewheels',StringType(),True),StructField('enginelocation',StringType(),True),StructField('wheelbase',StringType(),True),StructField('length',FloatType(),True),StructField('width',FloatType(),True),StructField('height',FloatType(),True),StructField('curbweight',IntegerType(),True),StructField('enginesize',FloatType(),True),StructField('horsepower',FloatType(),True),StructField('peakrpm',FloatType(),True),StructField('citympg',FloatType(),True),StructField('highwaympg',FloatType(),True),StructField('price',IntegerType(),True)])
+>>> file7 = sqlContext.read.csv('file:///home/ubuntu1/cars.csv',header=True,schema=schema)
+18/10/17 11:08:35 WARN DataSource: Multiple sources found for csv (com.databricks.spark.csv.DefaultSource15, org.apache.spark.sql.execution.datasources.csv.CSVFileFormat), defaulting to the internal datasource (org.apache.spark.sql.execution.datasources.csv.CSVFileFormat).
+18/10/17 11:08:35 WARN DataSource: Multiple sources found for csv (com.databricks.spark.csv.DefaultSource15, org.apache.spark.sql.execution.datasources.csv.CSVFileFormat), defaulting to the internal datasource (org.apache.spark.sql.execution.datasources.csv.CSVFileFormat).
+>>> file7.printSchema()
+root
+ |-- make: string (nullable = true)
+ |-- fueltype: string (nullable = true)
+ |-- numofdoors: string (nullable = true)
+ |-- bodystyle: string (nullable = true)
+ |-- drivewheels: string (nullable = true)
+ |-- enginelocation: string (nullable = true)
+ |-- wheelbase: string (nullable = true)
+ |-- length: float (nullable = true)
+ |-- width: float (nullable = true)
+ |-- height: float (nullable = true)
+ |-- curbweight: integer (nullable = true)
+ |-- enginesize: float (nullable = true)
+ |-- horsepower: float (nullable = true)
+ |-- peakrpm: float (nullable = true)
+ |-- citympg: float (nullable = true)
+ |-- highwaympg: float (nullable = true)
+ |-- price: integer (nullable = true)
+
+>>> file7.count()
+205
+>>> file8 = file7.na.omit()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'DataFrameNaFunctions' object has no attribute 'omit'
+>>> file8 = file7.na.drop()
+>>> file8.count()
+199
+>>> file8.describe()
+DataFrame[summary: string, make: string, fueltype: string, numofdoors: string, bodystyle: string, drivewheels: string, enginelocation: string, wheelbase: string, length: string, width: string, height: string, curbweight: string, enginesize: string, horsepower: string, peakrpm: string, citympg: string, highwaympg: string, price: string]
+>>> file8.describe().show()
++-------+-----------+--------+----------+-----------+-----------+--------------+-----------------+------------------+-----------------+------------------+-----------------+------------------+------------------+-----------------+------------------+------------------+-----------------+
+|summary|       make|fueltype|numofdoors|  bodystyle|drivewheels|enginelocation|        wheelbase|            length|            width|            height|       curbweight|        enginesize|        horsepower|          peakrpm|           citympg|        highwaympg|            price|
++-------+-----------+--------+----------+-----------+-----------+--------------+-----------------+------------------+-----------------+------------------+-----------------+------------------+------------------+-----------------+------------------+------------------+-----------------+
+|  count|        199|     199|       199|        199|        199|           199|              199|               199|              199|               199|              199|               199|               199|              199|               199|               199|              199|
+|   mean|       null|    null|      null|       null|       null|          null|98.82412060301513|174.15125677214195|65.88241201429511| 53.77587915545133|2556.030150753769|126.82412060301507|103.39698492462311|5117.587939698493|25.201005025125628|30.683417085427134|13243.43216080402|
+| stddev|       null|    null|      null|       null|       null|          null|6.090837721282484|12.371904510673206| 2.11099663253006|2.4470394111015006|519.8555443246987|41.752931562298556| 37.55384270583397|480.5218239457577| 6.451826066384902| 6.849410236493902|7978.707608706001|
+|    min|alfa-romero|  diesel|        NA|convertible|        4wd|         front|            100.4|             141.1|             60.3|              47.8|             1488|              61.0|              48.0|           4150.0|              13.0|              16.0|             5118|
+|    max|      volvo|     gas|       two|      wagon|        rwd|          rear|             99.8|             208.1|             72.0|              59.8|             4066|             326.0|             262.0|           6600.0|              49.0|              54.0|            45400|
++-------+-----------+--------+----------+-----------+-----------+--------------+-----------------+------------------+-----------------+------------------+-----------------+------------------+------------------+-----------------+------------------+------------------+-----------------+
+
+>>> file8.describe().show()
++-------+-----------+--------+----------+-----------+-----------+--------------+-----------------+------------------+---------+------------------+-----------------+
+|summary|       make|fueltype|numofdoors|  bodystyle|drivewheels|enginelocation|        wheelbase|            length|  citympg|        highwaympg|            price|
++-------+-----------+--------+----------+-----------+-----------+--------------+-----------------+------------------+---------+------------------+-----------------+
+|  count|        199|     199|       199|        199|        199|           199|              199|               199|      199|               199|              199|
+|   mean|       null|    null|      null|       null|       null|          null|98.82412060301513|174.15125677214195|025125628|30.683417085427134|13243.43216080402|
+| stddev|       null|    null|      null|       null|       null|          null|6.090837721282484|12.371904510673206|066384902| 6.849410236493902|7978.707608706001|
+|    min|alfa-romero|  diesel|        NA|convertible|        4wd|         front|            100.4|             141.1|     13.0|              16.0|             5118|
+|    max|      volvo|     gas|       two|      wagon|        rwd|          rear|             99.8|             208.1|     49.0|              54.0|            45400|
++-------+-----------+--------+----------+-----------+-----------+--------------+-----------------+------------------+---------+------------------+-----------------+
+
+>>> from pyspark.ml.linalg import Vectors
+>>> file7.printSchema()
+root
+ |-- make: string (nullable = true)
+ |-- fueltype: string (nullable = true)
+ |-- numofdoors: string (nullable = true)
+ |-- bodystyle: string (nullable = true)
+ |-- drivewheels: string (nullable = true)
+ |-- enginelocation: string (nullable = true)
+ |-- wheelbase: string (nullable = true)
+ |-- length: float (nullable = true)
+ |-- width: float (nullable = true)
+ |-- height: float (nullable = true)
+ |-- curbweight: integer (nullable = true)
+ |-- enginesize: float (nullable = true)
+ |-- horsepower: float (nullable = true)
+ |-- peakrpm: float (nullable = true)
+ |-- citympg: float (nullable = true)
+ |-- highwaympg: float (nullable = true)
+ |-- price: integer (nullable = true)
+
+>>> file8 = file7.select('length','width','height','curbweight','enginesize','horsepower','peakrpm','citympg','highwaympg','price')
+>>> file8 = file8.na.drop()
+>>> file8.count()
+199
+>>> file8.describe().show()
++-------+------------------+-----------------+------------------+-----------------+------------------+------------------+-----------------+------------------+------------------+-----------------+
+|summary|            length|            width|            height|       curbweight|        enginesize|        horsepower|          peakrpm|           citympg|        highwaympg|            price|
++-------+------------------+-----------------+------------------+-----------------+------------------+------------------+-----------------+------------------+------------------+-----------------+
+|  count|               199|              199|               199|              199|               199|               199|              199|               199|               199|              199|
+|   mean|174.15125677214195|65.88241201429511| 53.77587915545133|2556.030150753769|126.82412060301507|103.39698492462311|5117.587939698493|25.201005025125628|30.683417085427134|13243.43216080402|
+| stddev|12.371904510673206| 2.11099663253006|2.4470394111015006|519.8555443246987|41.752931562298556| 37.55384270583397|480.5218239457577| 6.451826066384902| 6.849410236493902|7978.707608706001|
+|    min|             141.1|             60.3|              47.8|             1488|              61.0|              48.0|           4150.0|              13.0|              16.0|             5118|
+|    max|             208.1|             72.0|              59.8|             4066|             326.0|             262.0|           6600.0|              49.0|              54.0|            45400|
++-------+------------------+-----------------+------------------+-----------------+------------------+------------------+-----------------+------------------+------------------+-----------------+
+
+>>> file8.columns()
+
+>>> file8.columns
+['length', 'width', 'height', 'curbweight', 'enginesize', 'horsepower', 'peakrpm', 'citympg', 'highwaympg', 'price']
+>>> fea_cols = ['length', 'width', 'height', 'curbweight', 'enginesize', 'horsepower', 'peakrpm', 'citympg', 'highwaympg']
+>>> fea_cols
+['length', 'width', 'height', 'curbweight', 'enginesize', 'horsepower', 'peakrpm', 'citympg', 'highwaympg']
+>>> from pyspark.ml.feature import VectorAssembler
+>>> vec_assembler = VectorAssembler(inputCols=fea_cols, outputCol='feature')
+>>> final_data=vec_assembler.transform(file8)
+>>> final_data.show(5,truncate=False)
++------+-----+------+----------+----------+----------+-------+-------+----------+-----+--------------------------------------------------------------------------------------------+
+|length|width|height|curbweight|enginesize|horsepower|peakrpm|citympg|highwaympg|price|feature                                                                                     |
++------+-----+------+----------+----------+----------+-------+-------+----------+-----+--------------------------------------------------------------------------------------------+
+|168.8 |64.1 |48.8  |2548      |130.0     |111.0     |5000.0 |21.0   |27.0      |13495|[168.8000030517578,64.0999984741211,48.79999923706055,2548.0,130.0,111.0,5000.0,21.0,27.0]  |
+|168.8 |64.1 |48.8  |2548      |130.0     |111.0     |5000.0 |21.0   |27.0      |16500|[168.8000030517578,64.0999984741211,48.79999923706055,2548.0,130.0,111.0,5000.0,21.0,27.0]  |
+|171.2 |65.5 |52.4  |2823      |152.0     |154.0     |5000.0 |19.0   |26.0      |16500|[171.1999969482422,65.5,52.400001525878906,2823.0,152.0,154.0,5000.0,19.0,26.0]             |
+|176.6 |66.2 |54.3  |2337      |109.0     |102.0     |5500.0 |24.0   |30.0      |13950|[176.60000610351562,66.19999694824219,54.29999923706055,2337.0,109.0,102.0,5500.0,24.0,30.0]|
+|176.6 |66.4 |54.3  |2824      |136.0     |115.0     |5500.0 |18.0   |22.0      |17450|[176.60000610351562,66.4000015258789,54.29999923706055,2824.0,136.0,115.0,5500.0,18.0,22.0] |
++------+-----+------+----------+----------+----------+-------+-------+----------+-----+--------------------------------------------------------------------------------------------+
+only showing top 5 rows
+
+>>> final_data.show(5,truncate=False)
++------+-----+------+----------+----------+----------+-------+-------+----------+-----+------------------------------
+|length|width|height|curbweight|enginesize|horsepower|peakrpm|citympg|highwaympg|price|feature
++------+-----+------+----------+----------+----------+-------+-------+----------+-----+------------------------------
+|168.8 |64.1 |48.8  |2548      |130.0     |111.0     |5000.0 |21.0   |27.0      |13495|[168.8000030517578,64.09999847
+|168.8 |64.1 |48.8  |2548      |130.0     |111.0     |5000.0 |21.0   |27.0      |16500|[168.8000030517578,64.09999847
+|171.2 |65.5 |52.4  |2823      |152.0     |154.0     |5000.0 |19.0   |26.0      |16500|[171.1999969482422,65.5,52.400
+|176.6 |66.2 |54.3  |2337      |109.0     |102.0     |5500.0 |24.0   |30.0      |13950|[176.60000610351562,66.1999969
+|176.6 |66.4 |54.3  |2824      |136.0     |115.0     |5500.0 |18.0   |22.0      |17450|[176.60000610351562,66.4000015
++------+-----+------+----------+----------+----------+-------+-------+----------+-----+------------------------------
+only showing top 5 rows
+
+>>> final_data.show(5,truncate=False)
++------+-----+------+----------+----------+----------+-------+-------+----------+-----+--------------------------------------------------------------------------------------------+
+|length|width|height|curbweight|enginesize|horsepower|peakrpm|citympg|highwaympg|price|feature                                                                                     |
++------+-----+------+----------+----------+----------+-------+-------+----------+-----+--------------------------------------------------------------------------------------------+
+|168.8 |64.1 |48.8  |2548      |130.0     |111.0     |5000.0 |21.0   |27.0      |13495|[168.8000030517578,64.0999984741211,48.79999923706055,2548.0,130.0,111.0,5000.0,21.0,27.0]  |
+|168.8 |64.1 |48.8  |2548      |130.0     |111.0     |5000.0 |21.0   |27.0      |16500|[168.8000030517578,64.0999984741211,48.79999923706055,2548.0,130.0,111.0,5000.0,21.0,27.0]  |
+|171.2 |65.5 |52.4  |2823      |152.0     |154.0     |5000.0 |19.0   |26.0      |16500|[171.1999969482422,65.5,52.400001525878906,2823.0,152.0,154.0,5000.0,19.0,26.0]             |
+|176.6 |66.2 |54.3  |2337      |109.0     |102.0     |5500.0 |24.0   |30.0      |13950|[176.60000610351562,66.19999694824219,54.29999923706055,2337.0,109.0,102.0,5500.0,24.0,30.0]|
+|176.6 |66.4 |54.3  |2824      |136.0     |115.0     |5500.0 |18.0   |22.0      |17450|[176.60000610351562,66.4000015258789,54.29999923706055,2824.0,136.0,115.0,5500.0,18.0,22.0] |
++------+-----+------+----------+----------+----------+-------+-------+----------+-----+--------------------------------------------------------------------------------------------+
+only showing top 5 rows
+
+>>> final_data = final_data.select('feature','price')
+>>> final_data.show(5,truncate=False)
++--------------------------------------------------------------------------------------------+-----+
+|feature                                                                                     |price|
++--------------------------------------------------------------------------------------------+-----+
+|[168.8000030517578,64.0999984741211,48.79999923706055,2548.0,130.0,111.0,5000.0,21.0,27.0]  |13495|
+|[168.8000030517578,64.0999984741211,48.79999923706055,2548.0,130.0,111.0,5000.0,21.0,27.0]  |16500|
+|[171.1999969482422,65.5,52.400001525878906,2823.0,152.0,154.0,5000.0,19.0,26.0]             |16500|
+|[176.60000610351562,66.19999694824219,54.29999923706055,2337.0,109.0,102.0,5500.0,24.0,30.0]|13950|
+|[176.60000610351562,66.4000015258789,54.29999923706055,2824.0,136.0,115.0,5500.0,18.0,22.0] |17450|
++--------------------------------------------------------------------------------------------+-----+
+only showing top 5 rows
+
+>>> final_data.withColumnRenamed('price','label')
+DataFrame[feature: vector, label: int]
+>>> final_data.show(5,truncate=False)
++--------------------------------------------------------------------------------------------+-----+
+|feature                                                                                     |price|
++--------------------------------------------------------------------------------------------+-----+
+|[168.8000030517578,64.0999984741211,48.79999923706055,2548.0,130.0,111.0,5000.0,21.0,27.0]  |13495|
+|[168.8000030517578,64.0999984741211,48.79999923706055,2548.0,130.0,111.0,5000.0,21.0,27.0]  |16500|
+|[171.1999969482422,65.5,52.400001525878906,2823.0,152.0,154.0,5000.0,19.0,26.0]             |16500|
+|[176.60000610351562,66.19999694824219,54.29999923706055,2337.0,109.0,102.0,5500.0,24.0,30.0]|13950|
+|[176.60000610351562,66.4000015258789,54.29999923706055,2824.0,136.0,115.0,5500.0,18.0,22.0] |17450|
++--------------------------------------------------------------------------------------------+-----+
+only showing top 5 rows
+
+>>> final_data=final_data.withColumnRenamed('price','label')
+>>> final_data.show(5,truncate=False)
++--------------------------------------------------------------------------------------------+-----+
+|feature                                                                                     |label|
++--------------------------------------------------------------------------------------------+-----+
+|[168.8000030517578,64.0999984741211,48.79999923706055,2548.0,130.0,111.0,5000.0,21.0,27.0]  |13495|
+|[168.8000030517578,64.0999984741211,48.79999923706055,2548.0,130.0,111.0,5000.0,21.0,27.0]  |16500|
+|[171.1999969482422,65.5,52.400001525878906,2823.0,152.0,154.0,5000.0,19.0,26.0]             |16500|
+|[176.60000610351562,66.19999694824219,54.29999923706055,2337.0,109.0,102.0,5500.0,24.0,30.0]|13950|
+|[176.60000610351562,66.4000015258789,54.29999923706055,2824.0,136.0,115.0,5500.0,18.0,22.0] |17450|
++--------------------------------------------------------------------------------------------+-----+
+only showing top 5 rows
+
+>>> type(final_data)
+<class 'pyspark.sql.dataframe.DataFrame'>
+>>> final_data.count()
+199
+>>> (trainingdata,testingdata) = final_data.randomSplit([0.7,0.3])
+>>> trainingdata.count()
+132
+>>> testingdata.count()
+67
+>>> trainingdata.show(4,truncate=False)
++-------------------------------------------------------------------------------------------+-----+
+|feature                                                                                    |label|
++-------------------------------------------------------------------------------------------+-----+
+|[141.10000610351562,60.29999923706055,53.20000076293945,1488.0,61.0,48.0,5100.0,47.0,53.0] |5151 |
+|[144.60000610351562,63.900001525878906,50.79999923706055,1713.0,92.0,58.0,4800.0,49.0,54.0]|6479 |
+|[144.60000610351562,63.900001525878906,50.79999923706055,1819.0,92.0,76.0,6000.0,31.0,38.0]|6855 |
+|[150.0,64.0,52.599998474121094,1837.0,79.0,60.0,5500.0,38.0,42.0]                          |5399 |
++-------------------------------------------------------------------------------------------+-----+
+only showing top 4 rows
+
+>>> file8.count()
+199
+>>> file8.describe().show()
++-------+------------------+-----------------+------------------+-----------------+------------------+------------------+-----------------+------------------+------------------+-----------------+
+|summary|            length|            width|            height|       curbweight|        enginesize|        horsepower|          peakrpm|           citympg|        highwaympg|            price|
++-------+------------------+-----------------+------------------+-----------------+------------------+------------------+-----------------+------------------+------------------+-----------------+
+|  count|               199|              199|               199|              199|               199|               199|              199|               199|               199|              199|
+|   mean|174.15125677214195|65.88241201429511| 53.77587915545133|2556.030150753769|126.82412060301507|103.39698492462311|5117.587939698493|25.201005025125628|30.683417085427134|13243.43216080402|
+| stddev|12.371904510673206| 2.11099663253006|2.4470394111015006|519.8555443246987|41.752931562298556| 37.55384270583397|480.5218239457577| 6.451826066384902| 6.849410236493902|7978.707608706001|
+|    min|             141.1|             60.3|              47.8|             1488|              61.0|              48.0|           4150.0|              13.0|              16.0|             5118|
+|    max|             208.1|             72.0|              59.8|             4066|             326.0|             262.0|           6600.0|              49.0|              54.0|            45400|
++-------+------------------+-----------------+------------------+-----------------+------------------+------------------+-----------------+------------------+------------------+-----------------+
+
+>>> file8.describe().show()
++-------+------------------+-----------------+------------------+-----------------+------------------+---------------
+|summary|            length|            width|            height|       curbweight|        enginesize|        horsepo
++-------+------------------+-----------------+------------------+-----------------+------------------+---------------
+|  count|               199|              199|               199|              199|               199|
+|   mean|174.15125677214195|65.88241201429511| 53.77587915545133|2556.030150753769|126.82412060301507|103.39698492462
+| stddev|12.371904510673206| 2.11099663253006|2.4470394111015006|519.8555443246987|41.752931562298556| 37.55384270583
+|    min|             141.1|             60.3|              47.8|             1488|              61.0|              4
+|    max|             208.1|             72.0|              59.8|             4066|             326.0|             26
++-------+------------------+-----------------+------------------+-----------------+------------------+---------------
+
+>>> trainingdata.show(4,truncate=False)
++-------------------------------------------------------------------------------------------+-----+
+|feature                                                                                    |label|
++-------------------------------------------------------------------------------------------+-----+
+|[141.10000610351562,60.29999923706055,53.20000076293945,1488.0,61.0,48.0,5100.0,47.0,53.0] |5151 |
+|[144.60000610351562,63.900001525878906,50.79999923706055,1713.0,92.0,58.0,4800.0,49.0,54.0]|6479 |
+|[144.60000610351562,63.900001525878906,50.79999923706055,1819.0,92.0,76.0,6000.0,31.0,38.0]|6855 |
+|[150.0,64.0,52.599998474121094,1837.0,79.0,60.0,5500.0,38.0,42.0]                          |5399 |
++-------------------------------------------------------------------------------------------+-----+
+only showing top 4 rows
+
+>>> testingdata.show(4,truncate=False)
++------------------------------------------------------------------------------------------+-----+
+|feature                                                                                   |label|
++------------------------------------------------------------------------------------------+-----+
+|[150.0,64.0,52.599998474121094,1956.0,92.0,76.0,6000.0,30.0,34.0]                         |7129 |
+|[157.3000030517578,63.79999923706055,50.599998474121094,1967.0,90.0,68.0,5500.0,31.0,38.0]|6229 |
+|[157.3000030517578,63.79999923706055,50.599998474121094,1967.0,90.0,68.0,5500.0,31.0,38.0]|6229 |
+|[157.3000030517578,63.79999923706055,50.599998474121094,1989.0,90.0,68.0,5500.0,31.0,38.0]|6692 |
++------------------------------------------------------------------------------------------+-----+
+only showing top 4 rows
+
+>>> from pyspark.ml.regression import LinearRegression
+>>> lr = LinearRegression()
+>>> file8.show()
++------+-----+------+----------+----------+----------+-------+-------+----------+-----+
+|length|width|height|curbweight|enginesize|horsepower|peakrpm|citympg|highwaympg|price|
++------+-----+------+----------+----------+----------+-------+-------+----------+-----+
+| 168.8| 64.1|  48.8|      2548|     130.0|     111.0| 5000.0|   21.0|      27.0|13495|
+| 168.8| 64.1|  48.8|      2548|     130.0|     111.0| 5000.0|   21.0|      27.0|16500|
+| 171.2| 65.5|  52.4|      2823|     152.0|     154.0| 5000.0|   19.0|      26.0|16500|
+| 176.6| 66.2|  54.3|      2337|     109.0|     102.0| 5500.0|   24.0|      30.0|13950|
+| 176.6| 66.4|  54.3|      2824|     136.0|     115.0| 5500.0|   18.0|      22.0|17450|
+| 177.3| 66.3|  53.1|      2507|     136.0|     110.0| 5500.0|   19.0|      25.0|15250|
+| 192.7| 71.4|  55.7|      2844|     136.0|     110.0| 5500.0|   19.0|      25.0|17710|
+| 192.7| 71.4|  55.7|      2954|     136.0|     110.0| 5500.0|   19.0|      25.0|18920|
+| 192.7| 71.4|  55.9|      3086|     131.0|     140.0| 5500.0|   17.0|      20.0|23875|
+| 176.8| 64.8|  54.3|      2395|     108.0|     101.0| 5800.0|   23.0|      29.0|16430|
+| 176.8| 64.8|  54.3|      2395|     108.0|     101.0| 5800.0|   23.0|      29.0|16925|
+| 176.8| 64.8|  54.3|      2710|     164.0|     121.0| 4250.0|   21.0|      28.0|20970|
+| 176.8| 64.8|  54.3|      2765|     164.0|     121.0| 4250.0|   21.0|      28.0|21105|
+| 189.0| 66.9|  55.7|      3055|     164.0|     121.0| 4250.0|   20.0|      25.0|24565|
+| 189.0| 66.9|  55.7|      3230|     209.0|     182.0| 5400.0|   16.0|      22.0|30760|
+| 193.8| 67.9|  53.7|      3380|     209.0|     182.0| 5400.0|   16.0|      22.0|41315|
+| 197.0| 70.9|  56.3|      3505|     209.0|     182.0| 5400.0|   15.0|      20.0|36880|
+| 141.1| 60.3|  53.2|      1488|      61.0|      48.0| 5100.0|   47.0|      53.0| 5151|
+| 155.9| 63.6|  52.0|      1874|      90.0|      70.0| 5400.0|   38.0|      43.0| 6295|
+| 158.8| 63.6|  52.0|      1909|      90.0|      70.0| 5400.0|   38.0|      43.0| 6575|
++------+-----+------+----------+----------+----------+-------+-------+----------+-----+
+only showing top 20 rows
+
+>>> trainingdata.show()
++--------------------+-----+
+|             feature|label|
++--------------------+-----+
+|[141.100006103515...| 5151|
+|[144.600006103515...| 6479|
+|[144.600006103515...| 6855|
+|[150.0,64.0,52.59...| 5399|
+|[150.0,64.0,52.59...| 6529|
+|[155.899993896484...| 6295|
+|[156.899993896484...| 5118|
+|[157.100006103515...| 7295|
+|[157.300003051757...| 8558|
+|[157.300003051757...| 6377|
+|[157.300003051757...| 5572|
+|[157.300003051757...| 5572|
+|[157.300003051757...| 7957|
+|[157.300003051757...| 7957|
+|[157.300003051757...| 7689|
+|[157.300003051757...| 5389|
+|[157.300003051757...| 6189|
+|[157.899993896484...| 7053|
+|[158.699996948242...| 6338|
+|[159.100006103515...| 5195|
++--------------------+-----+
+only showing top 20 rows
+
+>>> (training1,testing1) = file8.randomSplit([0.7,0.3])
+>>> training1.count()
+133
+>>> testing1.count()
+66
+>>> lr1 = LinearRegression(maxIter=10, regParam=0.3, elasticNetParam=0.8)
+
+>>> training1.printSchema()
+root
+ |-- length: float (nullable = true)
+ |-- width: float (nullable = true)
+ |-- height: float (nullable = true)
+ |-- curbweight: integer (nullable = true)
+ |-- enginesize: float (nullable = true)
+ |-- horsepower: float (nullable = true)
+ |-- peakrpm: float (nullable = true)
+ |-- citympg: float (nullable = true)
+ |-- highwaympg: float (nullable = true)
+ |-- price: integer (nullable = true)
+
+>>> trainingdata.printSchema()
+root
+ |-- feature: vector (nullable = true)
+ |-- label: integer (nullable = true)
+
+>>> trainingdata.withColumnRenamed('feature','features')
+DataFrame[features: vector, label: int]
+>>> lrmodel = lr.fit(trainingdata)
+
+>>> trainingdata.show(4)
++--------------------+-----+
+|             feature|label|
++--------------------+-----+
+|[141.100006103515...| 5151|
+|[144.600006103515...| 6479|
+|[144.600006103515...| 6855|
+|[150.0,64.0,52.59...| 5399|
++--------------------+-----+
+only showing top 4 rows
+
+>>> trainingdata=trainingdata.withColumnRenamed('feature','features')
+>>> lrmodel = lr.fit(trainingdata)
+
+>>> lrmodel
+>>> lrmodel.summary()
+
+>>> lrmodel.summary
+
+>>> lrmodel.summary.show()
+>>> lrmodel.coefficients
+DenseVector([-139.4223, 468.1006, 399.8533, 4.289, 110.4746, 36.305, 0.8562, -349.2593, 354.7651])
+>>> lrmodel.intercept
+-50239.97000133751
+>>> print(lrmodel.summary)
+>>> lrmodel
+LinearRegression_437881459707cafda731
+>>> Summary = lrmodel.summary
+>>> Summary.rootMeanSquaredError
+3158.0232716301316
+>>> Summary.r2
+0.8313294270044982
+
+testingdata=testingdata.withColumnRenamed('feature','features')
+prediction = lrmodel.transform(testingdata)
