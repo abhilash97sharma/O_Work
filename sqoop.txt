@@ -1,0 +1,10 @@
+#----------- writing data into hdfs
+1.sqoop import --connect jdbc:mysql://localhost:3306/purnima --username root --password root --table employee --m 3 --target-dir /user/user1/abhilash/sqoop1
+2.sqoop import-all-tables --connect jdbc:mysql://localhost:3306/pankaj --username root --P --m 2
+
+#----------------- export the table from hdfs to mysql
+3.sqoop export --connect jdbc:mysql://localhost:3306/pankaj --username root --P --table emp --export-dir /user/user1/abhilash/sqoop1
+4.sqoop eval --connect jdbc:mysql://localhost:3306/pankaj --username root --P --query "select * from emp"
+
+#---------------import all tables to the specified directory
+5.sqoop import-all-tables --connect jdbc:mysql://192.168.5.82:3306/employee_data --username root --warehouse-dir /user/user1/abhilash/sqoop3 --m 3
